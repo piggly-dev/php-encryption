@@ -1,0 +1,41 @@
+{
+    "name": "piggly/php-encryption",
+    "description": "A simple class for generating signed or encrypted messages using the libsodium extension.",
+    "keywords": [
+        "piggly",
+        "cryptography",
+        "libsodium",
+        "signature",
+        "sodium",
+        "encrypt",
+        "decrypt"
+    ],
+    "type": "library",
+    "homepage": "https://github.com/piggly-dev/php-sodium-encryption",
+    "autoload": {
+        "psr-4": {
+            "Piggly\\Security\\": "src"
+        }
+    },
+    "require": {
+        "php": "^7.2",
+        "ext-sodium": "*",
+        "ext-openssl": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4"
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "test": "phpunit"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Caique Araujo",
+            "email": "caique@studiopiggly.com.br",
+            "homepage": "https://github.com/caiquearaujo",
+            "role": "Developer"
+        }
+    ]
+}
