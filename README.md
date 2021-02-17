@@ -1,5 +1,7 @@
 # Criptografia sem complicação
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/piggly/php-encryption.svg?style=flat-square)](https://packagist.org/packages/piggly/php-encryption) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE) 
+
 Essa biblioteca foi criada para facilitar e simplificar o processo de criptografia de dados. O intuito dela é prover uma interface simples para conduzir diferentes tipos de criptografia conforme a necessidade.
 
 Toda class de criptografia deve extender a classe `BaseCrypto` e conter o método `createKeys()` que retorna uma matriz de chaves em `array` para auxiliar o processo de criação de chaves segura para o método de criptografia.
