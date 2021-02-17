@@ -28,20 +28,14 @@ class BasicCrypto extends BaseCrypto
 	 * secret_key => basic key to encrypt
 	 * 
 	 * @since 1.0.0
+	 * @since 1.0.1 Added unique() function to parent class.
 	 * @return array
 	 * @see https://stackoverflow.com/questions/4356289/php-random-string-generator/31107425#31107425
 	 */ 
 	public static function createKeys () : array
 	{
-		$keyspace = str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&*()+-/=[]{}?');
-		$pieces   = [];
-		$max      = mb_strlen($keyspace, '8bit') - 1;
-
-		for ($i = 0; $i < 64; ++$i) 
-		{ $pieces[] = $keyspace[random_int(0, $max)]; }
-
 		return [
-			'secret_key' => implode('', $pieces)
+			'secret_key' => self::unique(64, true)
 		];
 	}
 

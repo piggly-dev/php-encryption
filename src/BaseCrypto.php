@@ -29,6 +29,32 @@ abstract class BaseCrypto
 	abstract public static function createKeys () : array;
 	
 	/**
+	 * Create a random unique string.
+	 * 
+	 * @param int $length
+	 * @param bool $specialChars Include special chars
+	 * @since 1.0.1
+	 * @return string
+	 * @see https://stackoverflow.com/questions/4356289/php-random-string-generator/31107425#31107425
+	 */ 
+	public static function unique ( 
+		int $length = 32, 
+		bool $specialChars = false 
+	) : string
+	{
+		$keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$keyspace = $specialChars ? $keyspace.'!@#$%&*()+-/=[]{}?' : $keyspace;
+		$keyspace = str_shuffle($keyspace);
+		$pieces   = [];
+		$max      = mb_strlen($keyspace, '8bit') - 1;
+
+		for ($i = 0; $i < $length; ++$i) 
+		{ $pieces[] = $keyspace[random_int(0, $max)]; }
+
+		return implode('', $pieces);
+	}
+
+	/**
 	 * Get a key.
 	 * 
 	 * @param string $index
